@@ -6,8 +6,10 @@
   "scripts": {
     "start": "run-p -l type-check:watch start:dev",
     "start:dev": "vite --port 8080",
-    "start:prod": "vite build",
-    "build": "npm run type-check && npm run clean && npm run start:prod",
+    "build:prod": "vite build",
+    "build:dev": "vite build --mode development",
+    "deploy": "gh-pages -d dist",
+    "build": "npm run type-check && npm run clean && npm run build:prod",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "clean": "rimraf dist",
